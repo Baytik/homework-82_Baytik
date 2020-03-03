@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const artist = require('./app/artists');
 const albums = require('./app/albums');
+const tracks = require('./app/track');
 
 const app = express();
 const port = 8000;
@@ -18,6 +19,7 @@ const run = async () => {
     });
     app.use('/artists', artist);
     app.use('/albums', albums);
+    app.use('/tracks', tracks);
     app.listen(port)
 };
 
