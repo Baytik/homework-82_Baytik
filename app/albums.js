@@ -18,8 +18,13 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 router.get('/', async (req, res) => {
-   const albums = await Album.find();
-   res.send(albums)
+   if (req.query.artist) {
+       const albums = await Album.find({artist: req.query.artist});
+       res.send(albums)
+   } else {
+       const albums = await Album.find();
+       res.send(albums)
+   }
 });
 
 router.get('/:id', async (req, res) => {
