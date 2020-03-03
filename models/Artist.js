@@ -12,10 +12,6 @@ const ArtistSchema = new Schema ({
       required: true
     },
     image: String,
-    album: {
-      type: Schema.Types.ObjectID,
-      ref: 'Album'
-    },
 });
 
 const Artist = mongoose.model('Artist', ArtistSchema);
